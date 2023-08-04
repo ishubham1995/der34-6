@@ -3,3 +3,4 @@ from django.db import models
 class Swe23(models.Model):
     'Generated Model'
     ncnjdj = models.BigIntegerField()
+    hfhdhdh = models.BigIntegerField(null=True,blank=True,)
