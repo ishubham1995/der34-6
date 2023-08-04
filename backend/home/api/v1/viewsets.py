@@ -1,3 +1,7 @@
+from rest_framework import viewsets
+from home.models import Swe23,Swe23,Swe23
+from .serializers import Swe23Serializer,Swe23Serializer,Swe23Serializer
+from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from rest_framework.authtoken.models import Token
@@ -28,3 +32,8 @@ class LoginViewSet(ViewSet):
         token, created = Token.objects.get_or_create(user=user)
         user_serializer = UserSerializer(user)
         return Response({"token": token.key, "user": user_serializer.data})
+
+class Swe23ViewSet(viewsets.ModelViewSet):
+    serializer_class = Swe23Serializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Swe23.objects.all()
